@@ -1,0 +1,100 @@
+body{
+    font-family: KaiTi,SimSun,Microsoft YaHei;
+    width:80%;
+    background: rgba(0,0,0,0);
+    box-shadow: 0 0 25px 0.5px #2439A3;
+    border-radius: 20px;
+    margin:60px auto;
+}
+.bg{
+    background:url('/public/images/back.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.page{
+    width:93%;
+    /* border:1px solid black; */
+    background: rgba(0,0,0,0);
+    margin:30px auto;
+    padding:90px 0 20px 0;
+    
+}
+
+.navbar-fixed-top{
+    width:74%;
+    margin:90px auto;
+}
+
+.navbar-default{
+    background:white;
+    border:none;
+    box-shadow: 0 1px 5px white;
+    background: rgba(0,0,0,0);
+    opacity: 0.9;
+}
+
+.navbar-default .navbar-brand{
+    color: #4149B4;
+    font-size: 26px;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.navbar-form{
+    position: relative;
+}
+
+@media(max-width: 840px){
+    .navbar-default .navbar-brand{
+        font-size: 20px;
+    }
+    .navbar-default .navbar-nav>li>a{
+        font-size: 14px;
+        font-weight: 50;
+    }
+}
+
+@media(max-width: 767px){
+    .main-right{
+        display: none;
+    }
+}
+
+.navbar-form .form-control{
+    background: rgba(0,0,0,0);
+    border:none;
+    color: white;
+    box-shadow: 0 0 3px 1px white;
+}
+
+.navbar-form button[type="submit"]{
+    position: absolute;
+    top:25%;
+    right:10%;
+    background: none;
+    border: none;
+}
+
+.navbar-form input[type="text"]::-webkit-input-placeholder{
+    color: white;
+}
+
+.navbar-form .glyphicon{
+    color: white;
+}
+

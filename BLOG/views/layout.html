@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/css/reset.css">
+    <link rel="stylesheet" href="/public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/public/css/navHeader.css">
+    <title>博客</title>
+</head>
+<body>
+    <div class="page">
+        <!-- 导航 -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#responsive-navbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand"><strong>初遇゛</strong></a>
+                </div>
+                <div class="collapse navbar-collapse" id="responsive-navbar">
+                    <ul class="nav navbar-nav">
+                        <li><a href=""><span class="glyphicon glyphicon-home">Home</span></a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                               <span class="glyphicon glyphicon-folder-close"></span> BLOG <span class="caret"></span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
+                                <li><a href=""><span class="glyphicon glyphicon-paperclip">NodeJs</span></a></li>
+                                <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
+                            </ul>
+                        </li>
+                        <li><a href=""><span class="glyphicon glyphicon-bell">About</span></a></li>
+                    </ul>
+                    <form action="" class="navbar-form navbar-left">
+                        <input type="text" placeholder="请输入关键词搜索" class="form-control">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+        <!-- 导航 -->
+        <!-- 主体 -->
+        <div class="row">
+            <div class="col-sm-8 col-md-8">{%block content%}{%endblock%}</div>
+            <div class="col-sm-4 col-md-4 main-right">
+                <!-- 注册 -->
+                <div>
+                    <form action="">
+                        <table border="0">
+                            <tr>
+                                <th>用户名：</th>
+                                <th><input type="text" name="" id=""></th>
+                            </tr>
+                            <tr>
+                                <th>密码:</th>
+                                <th><input type="password" name="" id=""></th>
+                            </tr>
+                            <tr>
+                                <th>确认密码:</th>
+                                <th><input type="password" name="" id=""></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2"><input type="submit" value="注册"></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2"> <p>已有账号？<a href="javascript:;" class="colMint">马上登录</a></p></th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <!-- 注册 -->
+                <!-- 登录 -->
+                <div>
+                    <form action="">
+                        <table border="0">
+                            <tr>
+                                <th>用户名：</th>
+                                <th><input type="text" name="" id=""></th>
+                            </tr>
+                            <tr>
+                                <th>密码:</th>
+                                <th><input type="password" name="" id=""></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2"><input type="submit" value="登录"></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2"> <p>还没注册？<a href="javascript:;" class="colMint">马上注册</a>　</p></th>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <!-- 登录 -->
+                <!-- 登录成功页面 -->
+                <div>
+                    <table>
+                        <tr>
+                            <td><img src="" alt="">头像</td>
+                        </tr>
+                        <tr>
+                            <td>用户名</td>
+                        </tr>
+                        <tr>
+                            <td><p>你好，欢迎登录博客</p></td>
+                        </tr>
+                        <tr>
+                            <td><p>管理员你好!<a href="">点击登录后台</a></p></td>
+                        </tr>
+                    </table>
+                </div>
+                <!-- 登录成功页面 -->
+            </div>
+        </div>
+        <!-- 主体 -->
+    </div>
+    <div class="bg"></div>
+    <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/holder.js"></script>
+</body>
+</html>
