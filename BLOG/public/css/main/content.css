@@ -1,0 +1,53 @@
+.content{
+    text-align: center;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    border-bottom: 1px dotted white;
+}
+
+.content h1{
+    font-size: 30px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #4149B4;
+}
+
+.content p{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+}
+
+.content img{
+    margin-bottom: 10px;
+    width:100%;
+}
+
+.content a{
+    display: block;
+    width:100%;
+    padding: 10px;
+    box-shadow: 0 0 8px 1px white;
+    border-radius: 20px;
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+    background: rgba(255,255,255,0.7);
+}
+
+.content a:hover{
+    text-decoration: none;
+}
+
+.paging{
+    text-align: center;
+}
+
+.pagination>li>a, .pagination>li>span{
+    background: rgba(0,0,0,0);
+    border: 1px dashed white;
+}
+
+.pagination>li>a:hover{
+    background: rgba(0,0,0,0);
+}

@@ -10,8 +10,8 @@ swig.setDefaults({cache:false});
 
 app.use('/public',express.static('./public'));
 
-app.use('/',function(req,res){
-    res.render('index');
-})
+app.use('/',require('./routers/main'));
+app.use('/admin',require('./routers/admin'));
+app.use('/api',require('./routers/api'));
 
 app.listen(8080);

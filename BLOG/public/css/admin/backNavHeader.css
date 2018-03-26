@@ -1,0 +1,66 @@
+body{
+    font-family: KaiTi,SimSun,Microsoft YaHei;
+    overflow-x: hidden;
+}
+
+.bg{
+    background:url('/public/images/backImage.jpg');
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: -1;
+}
+
+.navbar-default{
+    border:none;
+    background: rgba(0,0,0,0.3);
+    opacity: 0.9;
+}
+
+.navbar-default .navbar-brand{
+    color:#F6CEE3;
+    font-size: 26px;
+}
+
+.navbar{
+    margin-bottom: 5px;
+}
+
+.navbar-default .navbar-nav>li>a{
+    color: #FBEFF8;
+    font-size: 18px;
+}
+
+.navbar-default .nav-pills>li>a{
+    color: #FBEFF8;
+    font-size: 18px;
+    font-weight: 100;
+}
+
+.nav-stacked>li>a:hover{
+    background: rgba(255,255,255,0.3);
+}
+
+.open>.dropdown-menu{
+    background: rgba(255,255,255,0.5);
+}
+
+.choose{
+    background: rgba(255,255,255,0.3);
+}
+
+.navbar-side{
+    padding-bottom: 120%;
+}
+
+.nav-stacked>li{
+    margin-bottom: 1px;
+}

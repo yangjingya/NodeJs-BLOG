@@ -1,0 +1,93 @@
+/* 登录、注册 */
+.formBorder{
+    box-shadow: 0 0 5px 1px white;
+    padding:20px;
+}
+
+.formBorder table{
+    margin: auto;
+}
+
+.formBorder table tr th{
+    padding:10px 5px;
+    white-space: nowrap;
+}
+
+.formBorder span{
+    width:100%;
+}
+
+.formBorder input[type="text"]{
+    background: none;
+    border:none;
+    box-shadow: 0 0 5px 1px white;
+    width:100%;
+}
+
+.formBorder input[type="password"]{
+    background: none;
+    border:none;
+    box-shadow: 0 0 5px 1px white;
+    width:100%;
+}
+
+.tableText{
+    text-align: right;
+    font-size: 18px;
+    font-weight: 700;
+    color:white;
+}
+
+.btn{
+    box-shadow:0 0 8px 1px #4056E7;
+    background: rgba(0,0,0,0);
+    font-size: 18px;
+    font-weight: 700;
+    color:white;
+}
+
+.formBorder p{
+    color: #4149B4;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.formBorder p a{
+    color:rgb(250, 64, 64);
+}
+
+/* 登录、注册 */
+/* 登录成功 */
+.LoginSuccess{
+    width:100%;
+}
+
+.LoginSuccess table{
+    text-align: center;
+    margin: 0 auto;
+}
+
+.adminName{
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.LoginSuccess table tr td{
+    padding: 8px;
+}
+
+.LoginSuccess table a{
+    color:black;
+    font-weight: 700;
+}
+
+.LoginSuccess table p{
+    color: #4149B4;
+    font-weight: 700;
+}
+
+.LoginSuccess table p a{
+    color:rgb(250, 64, 64);
+    font-weight: 700;
+}
+/* 登录成功 */
