@@ -56,6 +56,12 @@
     color:rgb(250, 64, 64);
 }
 
+.warningInfo{
+    color:red;
+    font-weight: 700;
+    font-size: 14px;
+}
+
 /* 登录、注册 */
 /* 登录成功 */
 .LoginSuccess{

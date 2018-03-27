@@ -55,61 +55,67 @@
             <div class="col-sm-8 col-md-8">{%block content%}{%endblock%}</div>
             <div class="col-sm-4 col-md-4 main-right">
                 <!-- 注册 -->
-                <div class="formBorder">
-                    <form action="">
+                <div class="formBorder" id="registerBox" style="display:none">
+                    <div>
                         <table border="0">
                             <tr>
                                 <th class="tableText">用户名:</th>
-                                <th><input type="text" name="" id=""></th>
+                                <th><input type="text" name="username" id=""></th>
                             </tr>
                             <tr>
                                 <th class="tableText">密码:</th>
-                                <th><input type="password" name="" id=""></th>
+                                <th><input type="password" name="password" id=""></th>
                             </tr>
                             <tr>
                                 <th class="tableText">确认密码:</th>
-                                <th><input type="password" name="" id=""></th>
+                                <th><input type="password" name="repassword" id=""></th>
                             </tr>
                             <tr>
                                 <th colspan="2"><button type="submit" class="btn btn-block">注 册</button></th>
                             </tr>
                             <tr>
-                                <th colspan="2"> <p>已有账号？<a href="javascript:;" class="colMint">马上登录</a></p></th>
+                                <th colspan="2"> <p>已有账号？<a href="javascript:;">马上登录</a></p></th>
+                            </tr>
+                            <tr>
+                                <th colspan="2"><em class="warningInfo"></em></th>
                             </tr>
                         </table>
-                    </form>
+                    </div>
                 </div>
                 <!-- 注册 -->
                 <!-- 登录 -->
-                <div class="formBorder">
-                        <form action="">
+                <div class="formBorder" id="loginBox">
+                        <div>
                             <table border="0">
                                 <tr>
                                     <th class="tableText">用户名:</th>
-                                    <th><input type="text" name="" id=""></th>
+                                    <th><input type="text" name="username" id=""></th>
                                 </tr>
                                 <tr>
                                     <th class="tableText">密码:</th>
-                                    <th><input type="password" name="" id=""></th>
+                                    <th><input type="password" name="password" id=""></th>
                                 </tr>
                                 <tr>
-                                    <th colspan="2"><button type="submit" class="btn btn-block">登 录</button></th>
+                                    <th colspan="2"><button class="btn btn-block">登 录</button></th>
                                 </tr>
                                 <tr>
-                                    <th colspan="2"> <p>还没注册？<a href="javascript:;" class="colMint">马上注册</a></p></th>
+                                    <th colspan="2"> <p>还没注册？<a href="javascript:;">马上注册</a></p></th>
+                                </tr>
+                                <tr>
+                                    <th colspan="2"><em class="warningInfo"></em></th>
                                 </tr>
                             </table>
-                        </form>
+                        </div>
                     </div>
                 <!-- 登录 -->
                 <!-- 登录成功页面 -->
-                <div class="LoginSuccess">
+                <div class="LoginSuccess" style="display:none" id="loginSuccess">
                     <table>
                         <tr>
                             <td colspan="2"><img src="/public/images/avatar.jpg" alt="" class="img-circle" width="50px" height="50px"></td>
                         </tr>
                         <tr>
-                            <td colspan="2"><span class="adminName">千千家的易只烊</span></td>
+                            <td colspan="2"><span class="adminName"></span></td>
                         </tr>
                         <tr>
                             <td>
@@ -142,5 +148,6 @@
     <script src="/public/js/jquery-3.3.1.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
     <script src="/public/js/holder.js"></script>
+    <script src="/public/js/main/index.js"></script>
 </body>
 </html>
