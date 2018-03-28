@@ -5,6 +5,10 @@ $(function(){
     var loginSuccess=$('#loginSuccess');
     var loginFail=$('#loginFail');
 
+    var userInfo={
+        username:''
+    }
+
     //登录、注册切换
     registerBox.find('a').on('click',function(){
         registerBox.hide();
@@ -53,15 +57,37 @@ $(function(){
                         loginBox.hide();
                         loginSuccess.show();
                         loginSuccess.find('.adminName').html(result.userInfo.username);
+                        loginSuccess.find('#imgAvatar').attr('src',result.userInfo.avatarUrl);
+                        userInfo.username=result.userInfo.username;
                         //登录成功
                     }, 1000);
                 }
             }
         });
     });
-    //登录
+    //登录    
 
-    
- 
-    
+    //更改头像
+        $('#avatar-container ul li').each(function(){
+            $(this).bind('click',function(){
+                $('#avatar-container ul li').each(function(){
+                    $(this).css({'box-shadow':'none','border':'1px solid lightblue'});
+                });
+                $(this).css({'box-shadow':'0 0 10px 1px orange','border':'none'});
+                var avatarUrl=$(this).find('img').attr('src');
+                $.ajax({
+                    type:'post',
+                    url:'/api/user/avatar',
+                    data:{
+                        username:userInfo.username,
+                        avatarUrl:avatarUrl
+                    },
+                    dataType:'json',
+                    success:function(result){
+                        console.log(result);
+                    }
+                });
+            });
+        });
+    //更改头像
 });

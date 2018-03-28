@@ -48,7 +48,7 @@ router.post('/user/register',function(req,res){
             return;
         }
         var encryptPassword=encrypt.md5(password);
-        var user=new User({username:username,password:encryptPassword});
+        var user=new User({username:username,password:encryptPassword,avatarUrl:'/public/images/avatar/default.jpg'});
         return user.save();
     }).then(function(result){
         responseData.message='注册成功';
@@ -88,7 +88,8 @@ router.post('/user/login',function(req,res){
         responseData.message='登录成功';
         responseData.userInfo={
             id:result._id,
-            username:result.username
+            username:result.username,
+            avatarUrl:result.avatarUrl
         }
         res.json(responseData);
     });

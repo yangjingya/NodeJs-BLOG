@@ -97,3 +97,18 @@
     font-weight: 700;
 }
 /* 登录成功 */
+
+/* 头像选择浮窗 */
+#avatar ul li{
+    float: left;
+    margin-right: 10px;
+    border:1px solid lightblue;
+    cursor: pointer;
+}
+
+#avatar .btn{
+    background:rgba(0,0,0,0);
+    box-shadow: 0 0 10px 1px lightblue;
+    color:black;
+}
+/* 头像选择浮窗 */

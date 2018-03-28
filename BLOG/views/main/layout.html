@@ -112,7 +112,7 @@
                 <div class="LoginSuccess" style="display:none" id="loginSuccess">
                     <table>
                         <tr>
-                            <td colspan="2"><img src="/public/images/avatar.jpg" alt="" class="img-circle" width="50px" height="50px"></td>
+                            <td colspan="2"><a href="" data-toggle="modal" data-target="#avatar"><img src="/public/images/avatar/1.png" alt="" class="img-circle" id="imgAvatar" width="50px" height="50px"></a></td>
                         </tr>
                         <tr>
                             <td colspan="2"><span class="adminName"></span></td>
@@ -140,6 +140,32 @@
                     </table>
                 </div>
                 <!-- 登录成功页面 -->
+            </div>
+            <div id="avatar" class="modal fade" tabindex="-1">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button class="close" data-dismiss="modal">&times;</button>
+                            <h4>头像选择</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div id="avatar-container">
+                                <ul>
+                                    <li><img src="/public/images/avatar/1.png" alt="" width="50" height="50"></li>
+                                    <li><img src="/public/images/avatar/2.jpg" alt="" width="50" height="50"></li>
+                                    <li><img src="/public/images/avatar/3.png" alt="" width="50" height="50"></li>
+                                    <li><img src="/public/images/avatar/4.jpeg" alt="" width="50" height="50"></li>
+                                    <li><img src="/public/images/avatar/5.jpg" alt="" width="50" height="50"></li>
+                                    <li><img src="/public/images/avatar/6.jpg" alt="" width="50" height="50"></li>
+                                </ul>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn ">选择</button>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- 主体 -->
