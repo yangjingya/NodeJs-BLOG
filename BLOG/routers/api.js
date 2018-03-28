@@ -139,5 +139,13 @@ router.post('/user/avatar',function(req,res){
 });
 // 更换头像
 
+//退出登录
+router.post('/user/signout',function(req,res){
+    res.clearCookie('userInfor');
+    responseData.message='退出成功';
+    res.json(responseData);
+});
+//退出登录
+
 
 module.exports=router;

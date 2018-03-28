@@ -3,6 +3,7 @@ const swig=require('swig');
 const mongoose=require('mongoose');
 const bodyParser=require('body-parser');
 const cookieParser=require('cookie-parser');
+var User=require('./models/User');
 
 const app=express();
 
@@ -23,11 +24,17 @@ app.use(function(req,res,next){
     if(req.signedCookies.userInfor){
         try{
             req.userInfor=req.signedCookies.userInfor;
+            User.findById(req.signedCookies.userInfor.id).then(function(result){
+                req.userInfor.isadmin=Boolean(result.isadmin);
+                next();
+            });
         }catch(e){
             console.log(e);
         }
+    }else{
+        next();
     }
-    next();
+   
 });
 
 app.use('/',require('./routers/main'));

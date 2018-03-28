@@ -112,3 +112,13 @@
     color:black;
 }
 /* 头像选择浮窗 */
+
+/* 退出登录 */
+#signout{
+    background: rgba(0,0,0,0);
+    border: none;
+    color: #4149B4;
+    font-size: 16px;
+    font-weight: 500;
+}
+/* 退出登录 */

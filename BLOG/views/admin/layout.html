@@ -25,10 +25,11 @@
             <!-- 导航 -->
             <nav class="navbar navbar-default navbar-side" role="navigation">
                 <div class="container-fluid">
-                    <ul class="nav nav-pills nav-stacked">
-                        <li><a href="#"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                    <ul class="nav nav-pills nav-stacked" id="guide-nav">
+                        <li class="choose"><a href="/admin" id="home"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
+                        <li><a href="/admin/userManage" id="userManage"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" id="categaryManage">
                                 <span class="glyphicon glyphicon-list"></span> 分类管理
                                 <b class="caret"></b>
                             </a>
@@ -40,7 +41,7 @@
                         </li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-list-alt"></span> 文章管理
+                                <span class="glyphicon glyphicon-list-alt" id="aticleManage"></span> 文章管理
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -49,7 +50,7 @@
                                 <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
                             </ul>
                         </li>
-                        <li><a href="#"><span class="glyphicon glyphicon-leaf"></span> 评论</a></li>
+                        <li><a href="#" id="comment"><span class="glyphicon glyphicon-leaf"></span> 评论</a></li>
                     </ul>
                 </div>
             </nav>
@@ -65,6 +66,11 @@
     <div class="bg"></div>
     <script src="/public/js/jquery-3.3.1.min.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
+    <script src="/public/js/admin/home.js"></script>
+    <script src="/public/js/admin/userManage.js"></script>
+    <script src="/public/js/admin/categoryManage.js"></script>
+    <script src="/public/js/admin/articleManage.js"></script>
+    <script src="/public/js/admin/comment.js"></script>
     
 </body>
 </html>

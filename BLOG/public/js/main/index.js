@@ -85,4 +85,17 @@ $(function(){
         });
     });
     //更改头像
+
+    //退出
+    $('#signout').on('click',function(){
+        $.ajax({
+            type:'post',
+            url:'/api/user/signout',
+            dataType:'json',
+            success:function(result){
+                window.location.reload();
+            }
+        });
+    });
+    //退出
 });
