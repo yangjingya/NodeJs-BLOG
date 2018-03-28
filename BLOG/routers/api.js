@@ -52,6 +52,17 @@ router.post('/user/register',function(req,res){
         return user.save();
     }).then(function(result){
         responseData.message='注册成功';
+        responseData.userInfo={
+            id:result._id,
+            username:result.username,
+            avatarUrl:result.avatarUrl
+        }
+        res.secret='shduegiubibdsuaud';
+        res.cookie('userInfor',{
+            id:result._id,
+            username:result.username,
+            avatarUrl:result.avatarUrl
+        },{'signed':true});
         res.json(responseData);
     });
 });
@@ -91,10 +102,42 @@ router.post('/user/login',function(req,res){
             username:result.username,
             avatarUrl:result.avatarUrl
         }
+        res.secret='shduegiubibdsuaud';
+        res.cookie('userInfor',{
+            id:result._id,
+            username:result.username,
+            avatarUrl:result.avatarUrl
+        },{'signed':true});
         res.json(responseData);
     });
 });
 // 登录
+
+// 更换头像
+router.post('/user/avatar',function(req,res){
+    var conditions={username:req.userInfor.username};
+    var updata={$set:{avatarUrl:req.body.avatarUrl}};
+
+    User.update(conditions,updata).then(function(err,result){
+        if(err){
+            console.log(err);
+        }else{
+            responseData.message='头像修改成功';
+        }
+        return User.findOne({
+            username:req.userInfor.username
+        });
+    }).then(function(result){
+        res.secret='shduegiubibdsuaud';
+        res.cookie('userInfor',{
+            id:result._id,
+            username:result.username,
+            avatarUrl:result.avatarUrl
+        },{'signed':true});
+        res.json(responseData);
+    });
+});
+// 更换头像
 
 
 module.exports=router;

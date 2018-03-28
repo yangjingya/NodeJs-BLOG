@@ -6,7 +6,8 @@ $(function(){
     var loginFail=$('#loginFail');
 
     var userInfo={
-        username:''
+        username:'',
+        avatarUrl:''
     }
 
     //登录、注册切换
@@ -34,6 +35,8 @@ $(function(){
             dataType:'json',
             success:function (result) { 
                 registerBox.find('.warningInfo').html(result.message);
+                userInfo.username=result.userInfo.username;
+                window.location.reload();
              }
         });
     });
@@ -51,43 +54,35 @@ $(function(){
             dataType:'json',
             success:function(result){
                 loginBox.find('.warningInfo').html(result.message);
-                if(!result.code){
-                    setTimeout(() => {
-                        //登录成功
-                        loginBox.hide();
-                        loginSuccess.show();
-                        loginSuccess.find('.adminName').html(result.userInfo.username);
-                        loginSuccess.find('#imgAvatar').attr('src',result.userInfo.avatarUrl);
-                        userInfo.username=result.userInfo.username;
-                        //登录成功
-                    }, 1000);
-                }
+                userInfo.username=result.userInfo.username;
+                window.location.reload();
             }
         });
     });
     //登录    
 
     //更改头像
-        $('#avatar-container ul li').each(function(){
-            $(this).bind('click',function(){
-                $('#avatar-container ul li').each(function(){
-                    $(this).css({'box-shadow':'none','border':'1px solid lightblue'});
-                });
-                $(this).css({'box-shadow':'0 0 10px 1px orange','border':'none'});
-                var avatarUrl=$(this).find('img').attr('src');
-                $.ajax({
-                    type:'post',
-                    url:'/api/user/avatar',
-                    data:{
-                        username:userInfo.username,
-                        avatarUrl:avatarUrl
-                    },
-                    dataType:'json',
-                    success:function(result){
-                        console.log(result);
-                    }
-                });
+    $('#avatar-container ul li').each(function(){
+        $(this).bind('click',function(){
+            $('#avatar-container ul li').each(function(){
+                $(this).css({'box-shadow':'none','border':'1px solid lightblue'});
             });
+            $(this).css({'box-shadow':'0 0 10px 1px orange','border':'none'});
+            userInfo.avatarUrl=$(this).find('img').attr('src');
         });
+    });
+    $('.btnChoose').on('click',function(){
+        $.ajax({
+            type:'post',
+            url:'/api/user/avatar',
+            data:{
+                avatarUrl:userInfo.avatarUrl
+            },
+            dataType:'json',
+            success:function(result){
+                window.location.href='/';
+            }
+        });
+    });
     //更改头像
 });
