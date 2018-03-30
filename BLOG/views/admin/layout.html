@@ -28,20 +28,20 @@
                     <ul class="nav nav-pills nav-stacked" id="guide-nav">
                         <li><a href="/admin/home" id="home"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
                         <li><a href="/admin/userManage" id="userManage"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
-                        <li class="dropdown" id="categaryManage">
+                        <li class="dropdown" id="categoryManage">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <span class="glyphicon glyphicon-list"></span> 分类管理
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li id=""><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
+                                <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
                                 <li><a href=""><span class="glyphicon glyphicon-paperclip">NodeJs</span></a></li>
                                 <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
                             </ul>
                         </li>
-                        <li class="dropdown">
+                        <li class="dropdown" id="articleManage">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-list-alt" id="aticleManage"></span> 文章管理
+                                <span class="glyphicon glyphicon-list-alt"></span> 文章管理
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
@@ -57,7 +57,7 @@
             <!-- 导航 -->
         </div>
 
-        <div class="col-md-9">
+        <div class="col-xs-9">
             <!-- 主体 -->
             {%block content%}{%endblock%}
             <!-- 主体 -->

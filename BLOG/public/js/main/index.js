@@ -30,7 +30,8 @@ $(function(){
             data:{
                 username:registerBox.find('[name="username"]').val(),
                 password:registerBox.find('[name="password"]').val(),
-                repassword:registerBox.find('[name="repassword"]').val()
+                repassword:registerBox.find('[name="repassword"]').val(),
+                address:remote_ip_info['country']+remote_ip_info['province']+remote_ip_info['city']
             },
             dataType:'json',
             success:function (result) { 
@@ -98,4 +99,16 @@ $(function(){
         });
     });
     //退出
+
+    //跳转后台
+    $('#jumpTo').on('click',function(){
+        $.cookie('fromAdmin',"come from main");
+        console.log($.cookie('fromAdmin'));
+        window.location='/admin/home';
+    });
+    //跳转后台
+
+    //获取用户地址
+
+    //获取用户地址
 });

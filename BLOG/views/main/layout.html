@@ -41,8 +41,8 @@
                         <li><a href=""><span class="glyphicon glyphicon-bell">About</span></a></li>
                     </ul>
                     <form action="" class="navbar-form navbar-left">
-                        <input type="text" placeholder="请输入关键词搜索" class="form-control">
-                        <button type="submit">
+                        <input type="text" placeholder="请输入关键词搜索" class="form-control" id="searchInput">
+                        <button type="submit" id="searchButton">
                             <span class="glyphicon glyphicon-search"></span>
                         </button>
                     </form>
@@ -80,7 +80,7 @@
                         </tr>
                         {%if userInfor.isadmin%}
                         <tr>
-                            <td colspan="2"><p>欢迎回来!<a href="/admin">点击登录后台</a></p></td>
+                            <td colspan="2"><p>欢迎回来!<a href="#" id="jumpTo">点击登录后台</a></p></td>
                         </tr>
                         {%else%}
                         <tr>
@@ -181,7 +181,9 @@
     </div>
     <div class="bg"></div>
     <script src="/public/js/jquery-3.3.1.min.js"></script>
+    <script src="/public/js/jquery.cookie.js"></script>
     <script src="/public/js/bootstrap.min.js"></script>
+    <script src="http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=js" type="text/ecmascript"></script>
     <script src="/public/js/holder.js"></script>
     <script src="/public/js/main/index.js"></script>
 </body>

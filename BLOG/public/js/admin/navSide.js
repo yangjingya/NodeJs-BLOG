@@ -3,11 +3,18 @@ $(function(){
     var guideNav=$('#guide-nav');
     var home=$('#home');
     var userManage=$('#userManage');
-    var categaryManage=$('#categaryManage li');
-    var articleManage=$('#articleManage li');
+    var categoryManage=$('#categoryManage');
+    var articleManage=$('#articleManage');
     var comment=$('#comment');
+    
+    if($.cookie('fromAdmin')!=""){
+        console.log(123);
+        $.cookie('choice','#home');
+        $.cookie('fromAdmin',"");
+    }
 
     $($.cookie('choice')).addClass('choose');
+    
     home.on('click',function(){
         $($.cookie('choice')).removeClass('choose');
         $.cookie('choice','#'+$(this).attr('id'));
@@ -16,25 +23,16 @@ $(function(){
         $($.cookie('choice')).removeClass('choose');
         $.cookie('choice','#'+$(this).attr('id'));
     });
-    categaryManage.on('click',function(){
-        alert($(this).attr('id'));
+    categoryManage.on('click',function(){
         $($.cookie('choice')).removeClass('choose');
         $.cookie('choice','#'+$(this).attr('id'));
     });
-    // categoryManage.each(function(){
-    //     $(this).find('li').on('click',function(){
-    //         alert(11);
-    //         $($.cookie('choice')).removeClass('choose');
-    //         $.cookie('choice','#'+$(this).attr('id'));
-    //     });
-    // });
-    // articleManage.each(function(){
-    //     $(this).find('li').on('click',function(){
-    //         alert(11);
-    //         $($.cookie('choice')).removeClass('choose');
-    //         $.cookie('choice','#'+$(this).attr('id'));
-    //     });
-    // });
+
+    articleManage.on('click',function(){
+        $($.cookie('choice')).removeClass('choose');
+        $.cookie('choice','#'+$(this).attr('id'));
+    });
+  
     comment.on('click',function(){
         $($.cookie('choice')).removeClass('choose');
         $.cookie('choice','#'+$(this).attr('id'));

@@ -18,6 +18,7 @@ router.post('/user/register',function(req,res){
     var username=req.body.username;
     var password=req.body.password;
     var repassword=req.body.repassword;
+    var address=req.body.address;
 
     if(username==''){
         responseData.code=1;
@@ -48,20 +49,22 @@ router.post('/user/register',function(req,res){
             return;
         }
         var encryptPassword=encrypt.md5(password);
-        var user=new User({username:username,password:encryptPassword,avatarUrl:'/public/images/avatar/default.jpg'});
+        var user=new User({username:username,password:encryptPassword,avatarUrl:'/public/images/avatar/default.jpg',address:address});
         return user.save();
     }).then(function(result){
         responseData.message='注册成功';
         responseData.userInfo={
             id:result._id,
             username:result.username,
-            avatarUrl:result.avatarUrl
+            avatarUrl:result.avatarUrl,
+            address:result.address
         }
         res.secret='shduegiubibdsuaud';
         res.cookie('userInfor',{
             id:result._id,
             username:result.username,
-            avatarUrl:result.avatarUrl
+            avatarUrl:result.avatarUrl,
+            address:result.address
         },{'signed':true});
         res.json(responseData);
     });
@@ -100,13 +103,15 @@ router.post('/user/login',function(req,res){
         responseData.userInfo={
             id:result._id,
             username:result.username,
-            avatarUrl:result.avatarUrl
+            avatarUrl:result.avatarUrl,
+            address:result.address
         }
         res.secret='shduegiubibdsuaud';
         res.cookie('userInfor',{
             id:result._id,
             username:result.username,
-            avatarUrl:result.avatarUrl
+            avatarUrl:result.avatarUrl,
+            address:result.address
         },{'signed':true});
         res.json(responseData);
     });
@@ -132,7 +137,8 @@ router.post('/user/avatar',function(req,res){
         res.cookie('userInfor',{
             id:result._id,
             username:result.username,
-            avatarUrl:result.avatarUrl
+            avatarUrl:result.avatarUrl,
+            address:result.address
         },{'signed':true});
         res.json(responseData);
     });

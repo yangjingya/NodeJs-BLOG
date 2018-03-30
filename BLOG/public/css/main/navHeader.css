@@ -76,11 +76,35 @@ body{
         font-size: 14px;
         font-weight: 50;
     }
+    #searchInput{
+        width:180px;
+    }
+}
+
+@media(max-width: 850px){
+    .navbar-default .navbar-brand{
+        font-size: 18px;
+    }
+    .navbar-default .navbar-nav>li>a{
+        font-size: 12px;
+        font-weight: 40;
+    }
+    #searchInput{
+        width:150px;
+    }
 }
 
 @media(max-width: 767px){
     .main-right{
         display: none;
+    }
+    #searchInput{
+        width:100%;
+    }
+    #searchButton{
+        position: absolute;
+        top:30%;
+        right:5%;
     }
 }
 

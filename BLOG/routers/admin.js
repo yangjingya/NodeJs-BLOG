@@ -1,5 +1,6 @@
 const express=require('express');
 const router=express.Router();
+var User=require('../models/User');
 
 router.use(function(req,res,next){
     if(!req.userInfor.isadmin){
@@ -13,7 +14,11 @@ router.get('/home',function(req,res){
 });
 
 router.get('/userManage',function(req,res){
-    res.render('admin/userManage');
+    User.find().then(function(result){
+        res.render('admin/userManage',{
+            users:result
+        });
+    });
 });
 
 module.exports=router;
