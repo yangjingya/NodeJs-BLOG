@@ -3,19 +3,18 @@
 {%block content%}
 
 <ol class="breadcrumb">
-    <li><a href="/admin/home">后台</a></li>
     <li><a href="/admin/userManage">用户管理</a></li>
     <li class="active">用户列表</li>
 </ol>
 
 <table class="table table-hover">
-    <caption>用户信息</caption>
+    <caption>用户信息表</caption>
     <thead>
       <tr>
         <th>ID</th>
+        <th>头像</th>
         <th>用户名</th>
         <th>密码</th>
-        <th>头像</th>
         <th>用户地址</th>
       </tr>
     </thead>
@@ -24,25 +23,16 @@
         {%if user.isadmin==false %}
         <tr>
             <td>{{user.id}}</td>
+            <td><img src="{{user.avatarUrl}}" width="50" height="50" class="img-circle"></td>
             <td>{{user.username}}</td>
             <td>{{user.password}}</td>
-            <td><img src="{{user.avatarUrl}}" width="50" height="50" class="img-circle"></td>
-            <td>
-            <li class="dropdown">
-                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                    操作
-                    <b class="caret"></b>
-                </a>
-                <ul class="dropdown-menu">
-                    <li><a href="">修改</a></li>
-                    <li><a href="">删除</a></li>
-                </ul>
-            </li>
-            </td>
+            <td>{{user.address}}</td>
         </tr>
         {%endif%}
         {%endfor%}
     </tbody>
-  </table>
+</table>
+
+{%include '../page.html'%}
 
 {%endblock%}

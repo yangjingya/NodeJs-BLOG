@@ -1,0 +1,30 @@
+.panel-default{
+    background: rgba(0,0,0,0);
+    border: none;
+}
+
+.panel-default>.panel-heading{
+    background: rgba(0,0,0,0.3);
+    border: none;
+    margin-bottom: 1px;
+}
+
+.panel-body{
+    text-align: center;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    padding: 22% 0;
+    margin-bottom: 1px;
+    font-size: 33px;
+    font-weight: 1000;
+}
+
+.panel-footer{
+    background: rgba(0,0,0,0.3);
+    border: none;
+}
+
+.panel-footer a{
+    font-size: 20px;
+    color: gray;
+}

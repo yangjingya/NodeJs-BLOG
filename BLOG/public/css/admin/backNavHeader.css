@@ -32,6 +32,7 @@ body{
 
 .navbar{
     margin-bottom: 5px;
+    white-space: nowrap;
 }
 
 .navbar-default .navbar-nav>li>a{

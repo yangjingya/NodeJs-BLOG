@@ -6,11 +6,11 @@ $(function(){
     var categoryManage=$('#categoryManage');
     var articleManage=$('#articleManage');
     var comment=$('#comment');
+    var signout=$('#signout');
     
-    if($.cookie('fromAdmin')!=""){
-        console.log(123);
+    console.log($.cookie('choice'));
+    if($.cookie('choice')=="null"){
         $.cookie('choice','#home');
-        $.cookie('fromAdmin',"");
     }
 
     $($.cookie('choice')).addClass('choose');
@@ -37,5 +37,11 @@ $(function(){
         $($.cookie('choice')).removeClass('choose');
         $.cookie('choice','#'+$(this).attr('id'));
     });
+
+    signout.on('click',function(){
+        $.cookie('choice',null);
+        window.location="/";
+    });
+
 
 });

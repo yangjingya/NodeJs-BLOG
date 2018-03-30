@@ -1,0 +1,28 @@
+.breadcrumb{
+    background: rgba(0,0,0,0);
+    padding-left: 0;
+    font-size: 18px;
+}
+
+table caption,table tr th,table tr td{
+    text-align: center;
+    white-space: nowrap;
+}
+
+table caption{
+    font-size: 20px;
+    font-weight: 700;
+    color: black;
+}
+
+.pagination-nav{
+    text-align: center;
+}
+
+.pagination>li>a, .pagination>li>span{
+    background: rgba(0,0,0,0);
+    border: none;
+    box-shadow: 0 0 5px 1px grey;
+    color:#FBEFF8;
+    margin-left: 0;
+}

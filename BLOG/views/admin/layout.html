@@ -7,6 +7,9 @@
     <link rel="stylesheet" href="/public/css/bootstrap.min.css">
     <link rel="stylesheet" href="/public/css/reset.css">
     <link rel="stylesheet" href="/public/css/admin/backNavHeader.css">
+    <link rel="stylesheet" href="/public/css/admin/userManage.css">
+    <link rel="stylesheet" href="/public/css/admin/categoryAdd.css">
+    <link rel="stylesheet" href="/public/css/error.css">
     <title>后台管理</title>
 </head>
 <body>
@@ -16,7 +19,7 @@
             <a class="navbar-brand" href="#">何悲て</a>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#"><span class="glyphicon glyphicon-off"></span> 退出</a></li>
+            <li><a href="#" id="signout"><span class="glyphicon glyphicon-off"></span> 退出</a></li>
         </ul>
     </nav>
     <!-- 导航 -->
@@ -34,9 +37,8 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
-                                <li><a href=""><span class="glyphicon glyphicon-paperclip">NodeJs</span></a></li>
-                                <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
+                                <li><a href="/admin/categoryManage/categoryHome"><span class="glyphicon glyphicon-paperclip">分类首页</span></a></li>
+                                <li><a href="/admin/categoryManage/categoryAdd"><span class="glyphicon glyphicon-paperclip">分类添加</span></a></li>
                             </ul>
                         </li>
                         <li class="dropdown" id="articleManage">
@@ -45,12 +47,12 @@
                                 <b class="caret"></b>
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
-                                <li><a href=""><span class="glyphicon glyphicon-paperclip">NodeJs</span></a></li>
-                                <li><a href=""><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
+                                <li><a href="/admin/articleManage"><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
+                                <li><a href="/admin/articleManage"><span class="glyphicon glyphicon-paperclip">NodeJs</span></a></li>
+                                <li><a href="/admin/articleManage"><span class="glyphicon glyphicon-paperclip">JavaScript</span></a></li>
                             </ul>
                         </li>
-                        <li><a href="#" id="comment"><span class="glyphicon glyphicon-leaf"></span> 评论</a></li>
+                        <li><a href="/admin/comment" id="comment"><span class="glyphicon glyphicon-leaf"></span> 评论</a></li>
                     </ul>
                 </div>
             </nav>
@@ -68,11 +70,12 @@
     <script src="/public/js/bootstrap.min.js"></script>
     <script src="/public/js/jquery.cookie.js"></script>
     <script src="/public/js/admin/navSide.js"></script>
-    <script src="/public/js/admin/home.js"></script>
+    <!-- <script src="/public/js/admin/home.js"></script> -->
     <script src="/public/js/admin/userManage.js"></script>
-    <script src="/public/js/admin/categoryManage.js"></script>
-    <script src="/public/js/admin/articleManage.js"></script>
-    <script src="/public/js/admin/comment.js"></script>
+    <script src="/public/js/admin/categoryHome.js"></script>
+    <script src="/public/js/admin/categoryAdd.js"></script>
+    <!-- <script src="/public/js/admin/articleManage.js"></script>
+    <script src="/public/js/admin/comment.js"></script> -->
     
 </body>
 </html>

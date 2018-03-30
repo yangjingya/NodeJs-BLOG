@@ -102,13 +102,8 @@ $(function(){
 
     //跳转后台
     $('#jumpTo').on('click',function(){
-        $.cookie('fromAdmin',"come from main");
-        console.log($.cookie('fromAdmin'));
-        window.location='/admin/home';
+        $.cookie('choice',null);
+        window.location="/admin/home";
     });
     //跳转后台
-
-    //获取用户地址
-
-    //获取用户地址
 });
