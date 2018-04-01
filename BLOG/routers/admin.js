@@ -2,6 +2,7 @@ const express=require('express');
 const router=express.Router();
 var User=require('../models/User');
 var Category=require('../models/Category');
+var Content=require('../models/contents');
 
 router.use(function(req,res,next){
     if(!req.userInfor.isadmin){
@@ -195,13 +196,63 @@ router.post('/categoryManage/categoryAdd',function(req,res){
 });
 
 router.get('/articleManage/articleHome',function(req,res){
-    res.render('admin/articleHome');
+    var page=isNaN(req.query.page)?1:req.query.page||1;
+    var limit=4;
+    var skip=0;
+    var totalPages=0;
+    var arr=[];
+    Content.count().then(function(count){
+        totalPages=Math.ceil(count/limit);
+        page=Math.min(page,totalPages);
+        page=Math.max(1,page);
+        skip=(page-1)*limit;
+
+        for(var i=0;i<totalPages;i++){
+            arr[i]=i+1;
+        }
+
+            Content.find().sort({_id:-1}).limit(limit).skip(skip).then(function(result){
+            res.render('admin/articleHome',{
+                contents:result,
+                page:page,
+                arr:arr,
+                url:'/admin/articleManage/articleHome'
+            });
+        });
+    })
 });
 
 router.get('/articleManage/articleAdd',function(req,res){
     Category.find().then(function(result){
         res.render('admin/articleAdd',{
             categories:result
+        });
+    });
+});
+
+router.post('/articleManage/articleAdd',function(req,res){
+    console.log(req.body);
+    if(req.body.category==''){
+        res.render('error',{
+            message:'分类内容不能为空'
+        });
+        return;
+    }
+    if(req.body.title==''){
+        res.render('error',{
+            message:'内容标题不能为空'
+        });
+        return;
+    }
+    var content=new Content({
+        category:req.body.category,
+        title:req.body.title,
+        description:req.body.description,
+        content:req.body.content
+    });
+    content.save().then(function(result){
+        res.render('success',{
+            message:'内容保存成功！'
         });
     });
 });

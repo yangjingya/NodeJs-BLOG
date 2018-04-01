@@ -12,7 +12,7 @@
         <label for="category" id="title">分类：</label>
         <select name="category" id="category" class="form-control">
             {%for category in categories%}
-            <option value="{{category._id}}">{{category.categoryName}}</option>
+            <option value="{{category._id.toString()}}">{{category.categoryName}}</option>
             {%endfor%}
         </select>
     </div>
@@ -22,7 +22,7 @@
     </div>
     <div class="form-group">
         <label for="description" class="labelStyle">简介：</label>
-        <textarea type="text" class="form-control inputStyle" name="content" placeholder="请输入内容简介" rows="5"></textarea>
+        <textarea type="text" class="form-control inputStyle" name="description" placeholder="请输入内容简介" rows="5"></textarea>
     </div>
     <div class="form-group">
         <label for="content" class="labelStyle">内容：</label>

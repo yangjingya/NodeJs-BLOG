@@ -12,13 +12,17 @@
     <thead>
       <tr>
         <th>类别</th>
+        <th>标题</th>
+        <th>描述</th>
         <th>操作</th>
       </tr>
     </thead>
-    <!-- <tbody>
-        {%for category in categories%}
+    <tbody>
+        {%for content in contents%}
         <tr>
-            <td>{{category.categoryName}}</td>
+            <td>{{content.category.toString()}}</td>
+            <td>{{content.title}}</td>
+            <td>{{content.description}}</td>
             <td>
                 <li class="dropdown" id="categoryManage">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
@@ -33,10 +37,10 @@
             </td>
         </tr>
         {%endfor%}
-    </tbody> -->
+    </tbody>
 </table>
 
-<!-- 
-{%include '../page.html'%} -->
+
+{%include '../page.html'%}
 
 {%endblock%}
