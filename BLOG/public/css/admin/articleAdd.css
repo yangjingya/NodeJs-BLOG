@@ -1,0 +1,12 @@
+.labelStyle{
+    padding-bottom: 10px;
+}
+
+.inputStyle{
+    background: rgba(255,255,255,0.5);
+}
+
+
+.inputStyle::-webkit-input-placeholder{
+    color: grey;
+}

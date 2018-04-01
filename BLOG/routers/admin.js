@@ -57,7 +57,7 @@ router.get('/categoryManage/categoryHome',function(req,res){
             arr[i]=i+1;
         }
 
-            Category.find().limit(limit).skip(skip).then(function(result){
+            Category.find().sort({_id:-1}).limit(limit).skip(skip).then(function(result){
             res.render('admin/categoryHome',{
                 categories:result,
                 page:page,
@@ -194,8 +194,16 @@ router.post('/categoryManage/categoryAdd',function(req,res){
     });
 });
 
-router.get('/articleManage',function(req,res){
-    res.send('文章管理');
+router.get('/articleManage/articleHome',function(req,res){
+    res.render('admin/articleHome');
+});
+
+router.get('/articleManage/articleAdd',function(req,res){
+    Category.find().then(function(result){
+        res.render('admin/articleAdd',{
+            categories:result
+        });
+    });
 });
 
 router.get('/comment',function(req,res){

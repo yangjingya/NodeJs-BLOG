@@ -1,0 +1,42 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+
+<ol class="breadcrumb">
+    <li><a href="/admin/articleHome">内容管理</a></li>
+    <li class="active">内容首页</li>
+</ol>
+
+<table class="table table-hover">
+    <caption>内容列表</caption>
+    <thead>
+      <tr>
+        <th>类别</th>
+        <th>操作</th>
+      </tr>
+    </thead>
+    <!-- <tbody>
+        {%for category in categories%}
+        <tr>
+            <td>{{category.categoryName}}</td>
+            <td>
+                <li class="dropdown" id="categoryManage">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        操作
+                        <b class="caret"></b>
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="/admin/categoryManage/edit?id={{category._id.toString()}}">修改</a></li>
+                        <li><a href="/admin/categoryManage/delete?id={{category._id.toString()}}">删除</a></li>
+                    </ul>
+                </li>
+            </td>
+        </tr>
+        {%endfor%}
+    </tbody> -->
+</table>
+
+<!-- 
+{%include '../page.html'%} -->
+
+{%endblock%}
