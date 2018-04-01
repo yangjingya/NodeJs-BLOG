@@ -34,14 +34,131 @@ router.get('/userManage',function(req,res){
             res.render('admin/userManage',{
                 users:result,
                 page:page,
-                arr:arr
+                arr:arr,
+                url:'/admin/userManage'
             });
         });
     })
 });
 
 router.get('/categoryManage/categoryHome',function(req,res){
-    res.render('admin/categoryManage');
+    var page=isNaN(req.query.page)?1:req.query.page||1;
+    var limit=4;
+    var skip=0;
+    var totalPages=0;
+    var arr=[];
+    Category.count().then(function(count){
+        totalPages=Math.ceil(count/limit);
+        page=Math.min(page,totalPages);
+        page=Math.max(1,page);
+        skip=(page-1)*limit;
+
+        for(var i=0;i<totalPages;i++){
+            arr[i]=i+1;
+        }
+
+            Category.find().limit(limit).skip(skip).then(function(result){
+            res.render('admin/categoryHome',{
+                categories:result,
+                page:page,
+                arr:arr,
+                url:'/admin/categoryManage/categoryHome'
+            });
+        });
+    })
+});
+
+router.get('/categoryManage/edit',function(req,res){
+    var id=req.query.id||'';
+    Category.findOne({
+        _id:id
+    }).then(function(result){
+        if(!result){
+            res.render('error',{
+                message:'分类信息不存在！'
+            });
+            return;
+        }else{
+            res.render('admin/categoryEdit',{
+                category:result,
+                id:id
+            });
+        }
+    });
+});
+
+router.post('/categoryManage/edit',function(req,res){
+    var id=req.query.id||'';
+    var newCategory=req.body.newCategory||'';
+    if(newCategory==''){
+        res.render('error',{
+            message:'输入不能为空！'
+        });
+        return;
+    }
+    Category.findOne({
+        _id:id
+    }).then(function(result){
+        if(!result){
+            res.render('error',{
+                message:'分类信息不存在！'
+            });
+            return;
+        }else{
+            if(newCategory==result.categoryName){
+                res.render('success',{
+                    message:'分类保存成功！',
+                    url:'/admin/categoryManage/categoryHome'
+                });
+                return Promise.reject();
+            }else{
+                return  Category.findOne({
+                    _id:{$ne:id},
+                    categoryName:newCategory
+                });
+            }   
+        }
+    }).then(function(result){
+        if(result){
+            res.render('error',{
+                message:'分类已经存在！'
+            });
+            return Promise.reject();
+        }else{
+            var condition={_id:id};
+            var update={$set:{categoryName:newCategory}};
+            return Category.update(condition,update);
+        }
+    }).then(function(result){
+        res.render('success',{
+            message:'分类保存成功！',
+            url:'/admin/categoryManage/categoryHome'
+        })
+    });
+});
+
+router.get('/categoryManage/delete',function(req,res){
+    var id=req.query.id||'';
+
+    Category.findOne({
+        _id:id
+    }).then(function(result){
+        if(!result){
+            res.render('error',{
+                message:'分类信息不存在！'
+            });
+            return;
+        }else{
+            Category.remove({
+                _id:id
+            }).then(function(){
+                res.render('success',{
+                    message:'分类删除成功！',
+                    url:'/admin/categoryManage/categoryHome'
+                })
+            });
+        }
+    });
 });
 
 router.get('/categoryManage/categoryAdd',function(req,res){
@@ -49,7 +166,7 @@ router.get('/categoryManage/categoryAdd',function(req,res){
 });
 
 router.post('/categoryManage/categoryAdd',function(req,res){
-    var categoryName=req.body.category||'';
+    var category=req.body.category||'';
     if(category==''){
         res.render('error',{
             message:'输入不能为空！'
@@ -58,7 +175,7 @@ router.post('/categoryManage/categoryAdd',function(req,res){
     }
 
     Category.findOne({
-        categoryName=categoryName
+        categoryName:category
     }).then(function(result){
         if(result){
             res.render('error',{
@@ -66,13 +183,13 @@ router.post('/categoryManage/categoryAdd',function(req,res){
             });
             return Promise.reject();
         }else{
-            var categorySave=new Category({categoryName:categoryName});
+            var categorySave=new Category({categoryName:category});
             return categorySave.save();
         }
     }).then(function(result){
         res.render('success',{
             message:'分类保存成功！',
-            url:'/categoryManage/categoryHome'
+            url:'/admin/categoryManage/categoryHome'
         })
     });
 });

@@ -1,0 +1,18 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+
+<ol class="breadcrumb">
+    <li><a href="/admin/categoryHome">分类管理</a></li>
+    <li class="active">分类修改</li>
+</ol>
+
+<form role="form" method="post" action="/admin/categoryManage/edit?id={{id}}">
+    <div class="form-group">
+      <label for="newCategory" id="categoryName">分类名称：</label>
+      <input type="text" class="form-control" name="newCategory" id="category" value="{{category.categoryName}}">
+    </div>
+    <button type="submit" class="btn">提交</button>
+</form>
+
+{%endblock%}

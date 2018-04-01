@@ -8,7 +8,6 @@ $(function(){
     var comment=$('#comment');
     var signout=$('#signout');
     
-    console.log($.cookie('choice'));
     if($.cookie('choice')=="null"){
         $.cookie('choice','#home');
     }
