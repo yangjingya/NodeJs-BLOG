@@ -26,14 +26,14 @@
             <td>{{content.title}}</td>
             <td>{{content.description}}</td>
             <td>
-                <li class="dropdown" id="categoryManage">
+                <li class="dropdown" id="articleManage">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         操作
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="/admin/categoryManage/edit?id={{category._id.toString()}}">修改</a></li>
-                        <li><a href="/admin/categoryManage/delete?id={{category._id.toString()}}">删除</a></li>
+                        <li><a href="/admin/articleManage/edit?id={{content._id.toString()}}">修改</a></li>
+                        <li><a href="/admin/articleManage/delete?id={{content._id.toString()}}">删除</a></li>
                     </ul>
                 </li>
             </td>

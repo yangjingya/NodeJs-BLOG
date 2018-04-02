@@ -257,6 +257,101 @@ router.post('/articleManage/articleAdd',function(req,res){
     });
 });
 
+router.get('/articleManage/edit',function(req,res) {
+    var id=req.query.id||'';
+    var categories=[];
+    Category.find().then(function(result){
+        categories=result;
+        return  Content.findOne({
+            _id:id
+        });
+    }).then(function(result){
+        if(!result){
+            res.render('error',{
+                message:'此博客不存在！'
+            });
+            return;
+        }else{
+            res.render('admin/articleEdit',{
+                content:result,
+                categories:categories,
+                id:id
+            });
+        }
+    });
+});
+
+router.post('/articleManage/edit',function(req,res){
+    var id=req.query.id||'';
+    var newCategory=req.body.category||'';
+    var newTitle=req.body.title||'';
+    var newDescription=req.body.description||'';
+    var newContent=req.body.content||'';
+    console.log(id);
+    if(newCategory==''){
+        res.render('error',{
+            message:'分类输入不能为空！'
+        });
+        return;
+    }
+    if(newTitle==''){
+        res.render('error',{
+            message:'标题输入不能为空！'
+        });
+        return;
+    }
+    Content.findOne({
+        _id:id
+    }).then(function(result){
+        if(!result){
+            res.render('error',{
+                message:'博客信息不存在！'
+            });
+            return;
+        }else{
+            if(newCategory.toString()==result.category.toString()&&newTitle==result.title&&newDescription==result.description&&newContent==result.content){
+                res.render('success',{
+                    message:'博客保存成功！',
+                    url:'/admin/categoryManage/categoryHome'
+                });
+                return Promise.reject();
+            }else{
+                var condition={_id:id};
+                var update={$set:{category:newCategory,title:newTitle,description:newDescription,content:newContent}};
+                return Content.update(condition,update);
+            }   
+        }
+    }).then(function(result){
+        res.render('success',{
+            message:'分类保存成功！',
+            url:'/admin/articleManage/articleHome'
+        })
+    });
+});
+
+router.get('/articleManage/delete',function(req,res){
+    var id=req.query.id||'';
+    Content.findOne({
+        _id:id
+    }).then(function(result){
+        if(!result){
+            res.render('error',{
+                message:'博客不存在！'
+            });
+            return;
+        }else{
+            Content.remove({
+                _id:id
+            }).then(function(){
+                res.render('success',{
+                    message:'博客删除成功！',
+                    url:'/admin/articleManage/articleHome'
+                })
+            });
+        }
+    });
+});
+
 router.get('/comment',function(req,res){
     res.send('评论');
 });

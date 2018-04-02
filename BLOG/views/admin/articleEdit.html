@@ -1,0 +1,38 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+
+<ol class="breadcrumb">
+    <li><a href="/admin/articleAdd">内容管理</a></li>
+    <li class="active">内容修改</li>
+</ol>
+
+<form role="form" method="post" action="/admin/articleManage/edit?id={{id}}">
+    <div class="form-group">
+        <label for="category" id="title">分类：</label>
+        <select name="category" id="category" class="form-control">
+            {%for category in categories%}
+            {%if content.category.toString()==category._id.toString() %}
+            <option value="{{category._id.toString()}}" selected>{{category.categoryName}}</option>
+            {%else%}
+            <option value="{{category._id.toString()}}">{{category.categoryName}}</option>
+            {%endif%}
+            {%endfor%}
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="title" class="labelStyle">标题：</label>
+        <input type="text" class="form-control inputStyle" name="title" placeholder="请输入内容标题" value="{{content.title}}">
+    </div>
+    <div class="form-group">
+        <label for="description" class="labelStyle">简介：</label>
+        <textarea type="text" class="form-control inputStyle" name="description" placeholder="请输入内容简介" rows="5">{{content.description}}</textarea>
+    </div>
+    <div class="form-group">
+        <label for="content" class="labelStyle">内容：</label>
+        <textarea type="text" class="form-control inputStyle" name="content" placeholder="请输入内容" rows="10">{{content.content}}</textarea>
+    </div>
+    <button type="submit" class="btn">提交</button>
+  </form>
+
+{%endblock%}
