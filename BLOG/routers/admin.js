@@ -211,8 +211,8 @@ router.get('/articleManage/articleHome',function(req,res){
             arr[i]=i+1;
         }
 
-            Content.find().sort({_id:-1}).limit(limit).skip(skip).then(function(result){
-            res.render('admin/articleHome',{
+            Content.find().sort({_id:-1}).limit(limit).skip(skip).populate('category').then(function(result){
+                res.render('admin/articleHome',{
                 contents:result,
                 page:page,
                 arr:arr,

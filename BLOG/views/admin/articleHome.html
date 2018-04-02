@@ -11,6 +11,7 @@
     <caption>内容列表</caption>
     <thead>
       <tr>
+        <th>ID</th>
         <th>类别</th>
         <th>标题</th>
         <th>描述</th>
@@ -20,7 +21,8 @@
     <tbody>
         {%for content in contents%}
         <tr>
-            <td>{{content.category.toString()}}</td>
+            <td>{{content._id.toString()}}</td>
+            <td>{{content.category.categoryName}}</td>
             <td>{{content.title}}</td>
             <td>{{content.description}}</td>
             <td>

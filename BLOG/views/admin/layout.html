@@ -27,35 +27,33 @@
     <div class="row">
         <div class="col-xs-3">
             <!-- 导航 -->
-            <nav class="navbar navbar-default navbar-side" role="navigation">
-                <div class="container-fluid">
-                    <ul class="nav nav-pills nav-stacked" id="guide-nav">
-                        <li><a href="/admin/home" id="home"><span class="glyphicon glyphicon-home"></span> 首页</a></li>
-                        <li><a href="/admin/userManage" id="userManage"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
-                        <li class="dropdown" id="categoryManage">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-list"></span> 分类管理
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/admin/categoryManage/categoryHome"><span class="glyphicon glyphicon-paperclip">分类首页</span></a></li>
-                                <li><a href="/admin/categoryManage/categoryAdd"><span class="glyphicon glyphicon-paperclip">分类添加</span></a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown" id="articleManage">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                <span class="glyphicon glyphicon-list-alt"></span> 文章管理
-                                <b class="caret"></b>
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li><a href="/admin/articleManage/articleHome"><span class="glyphicon glyphicon-paperclip">内容首页</span></a></li>
-                                <li><a href="/admin/articleManage/articleAdd"><span class="glyphicon glyphicon-paperclip">添加内容</span></a></li>
-                            </ul>
-                        </li>
-                        <li><a href="/admin/comment" id="comment"><span class="glyphicon glyphicon-leaf"></span> 评论</a></li>
-                    </ul>
-                </div>
-            </nav>
+            <div class="list">  
+                <ul class="yiji" id="guide-nav">  
+                    <li><a href="/admin/home"><span class="glyphicon glyphicon-home"></span> 首页</a></li> 
+                    <li><a href="/admin/userManage"><span class="glyphicon glyphicon-user"></span> 用户管理</a></li>
+                    <li>
+                        <a href="#" class="inactive">
+                            <span class="glyphicon glyphicon-list"></span> 分类管理
+                            <b class="caret"></b>
+                        </a>
+                        <ul>
+                            <li><a href="/admin/categoryManage/categoryHome"><span class="glyphicon glyphicon-paperclip">分类首页</span></a></li>
+                            <li><a href="/admin/categoryManage/categoryAdd"><span class="glyphicon glyphicon-paperclip">分类添加</span></a></li>
+                        </ul>
+                    </li>  
+                    <li>
+                        <a href="#" class="inactive">
+                            <span class="glyphicon glyphicon-list-alt"></span> 文章管理
+                            <b class="caret"></b>
+                        </a>
+                        <ul>
+                            <li><a href="/admin/articleManage/articleHome"><span class="glyphicon glyphicon-paperclip">内容首页</span></a></li>
+                            <li><a href="/admin/articleManage/articleAdd"><span class="glyphicon glyphicon-paperclip">添加内容</span></a></li>
+                        </ul>
+                    </li>  
+                    <li><a href="/admin/comment"><span class="glyphicon glyphicon-leaf"></span> 评论</a></li>
+                </ul>  
+            </div>       
             <!-- 导航 -->
         </div>
 
@@ -76,6 +74,5 @@
     <script src="/public/js/admin/categoryAdd.js"></script>
     <!-- <script src="/public/js/admin/articleManage.js"></script>
     <script src="/public/js/admin/comment.js"></script> -->
-    
 </body>
 </html>

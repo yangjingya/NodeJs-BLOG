@@ -102,7 +102,6 @@ $(function(){
 
     //跳转后台
     $('#jumpTo').on('click',function(){
-        $.cookie('choice',null);
         window.location="/admin/home";
     });
     //跳转后台

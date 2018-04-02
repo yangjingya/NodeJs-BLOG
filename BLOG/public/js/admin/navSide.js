@@ -1,46 +1,29 @@
 $(function(){
+    //导航栏添加高亮
+    var urlstr = location.href;  
+    console.log(urlstr);
+    var urlstatus=false;  
+    $('#guide-nav a').each(function () {  
+    if ((urlstr + '/').indexOf($(this).attr('href')) > -1&&$(this).attr('href')!='') {  
+    $(this).addClass('choose'); urlstatus = true;  
+    } else {  
+    $(this).removeClass('choose');  
+    }  
+    });  
+    if (!urlstatus) {$('#guide-nav a').eq(0).addClass('choose'); }  
+    //导航栏添加高亮
 
-    var guideNav=$('#guide-nav');
-    var home=$('#home');
-    var userManage=$('#userManage');
-    var categoryManage=$('#categoryManage');
-    var articleManage=$('#articleManage');
-    var comment=$('#comment');
-    var signout=$('#signout');
-    
-    if($.cookie('choice')=="null"){
-        $.cookie('choice','#home');
-    }
-
-    $($.cookie('choice')).addClass('choose');
-    
-    home.on('click',function(){
-        $($.cookie('choice')).removeClass('choose');
-        $.cookie('choice','#'+$(this).attr('id'));
-    });
-    userManage.on('click',function(){
-        $($.cookie('choice')).removeClass('choose');
-        $.cookie('choice','#'+$(this).attr('id'));
-    });
-    categoryManage.on('click',function(){
-        $($.cookie('choice')).removeClass('choose');
-        $.cookie('choice','#'+$(this).attr('id'));
-    });
-
-    articleManage.on('click',function(){
-        $($.cookie('choice')).removeClass('choose');
-        $.cookie('choice','#'+$(this).attr('id'));
-    });
-  
-    comment.on('click',function(){
-        $($.cookie('choice')).removeClass('choose');
-        $.cookie('choice','#'+$(this).attr('id'));
-    });
-
-    signout.on('click',function(){
-        $.cookie('choice',null);
-        window.location="/";
-    });
-
-
+    //侧栏伸缩
+    $('.inactive').click(function(){  
+        var className=$(this).parents('li').parents().attr('class');  
+        if($(this).siblings('ul').css('display')=='none'){  
+            if(className=="yiji"){  
+                $(this).parents('li').siblings('li').children('ul').slideUp(100);  
+            }  
+            $(this).siblings('ul').slideDown(100).children('li');  
+        }else {   
+            $(this).siblings('ul').slideUp(100);  
+        }  
+    })  
+    //侧栏伸缩
 });
