@@ -4,15 +4,21 @@ var User=require('../models/User');
 var Category=require('../models/Category');
 var Content=require('../models/contents');
 
+var allcategories=[];
 router.use(function(req,res,next){
     if(!req.userInfor.isadmin){
         return;
     }
+    Category.find().then(function(result){
+        allcategories=result;
+    });
     next();
 });
 
 router.get('/home',function(req,res){
-    res.render('admin/index');
+    res.render('admin/index',{
+        allcategories:allcategories
+    });
 });
 
 router.get('/userManage',function(req,res){
@@ -36,7 +42,8 @@ router.get('/userManage',function(req,res){
                 users:result,
                 page:page,
                 arr:arr,
-                url:'/admin/userManage'
+                url:'/admin/userManage',
+                allcategories:allcategories
             });
         });
     })
@@ -63,7 +70,8 @@ router.get('/categoryManage/categoryHome',function(req,res){
                 categories:result,
                 page:page,
                 arr:arr,
-                url:'/admin/categoryManage/categoryHome'
+                url:'/admin/categoryManage/categoryHome',
+                allcategories:allcategories
             });
         });
     })
@@ -82,7 +90,8 @@ router.get('/categoryManage/edit',function(req,res){
         }else{
             res.render('admin/categoryEdit',{
                 category:result,
-                id:id
+                id:id,
+                allcategories:allcategories
             });
         }
     });
@@ -133,7 +142,8 @@ router.post('/categoryManage/edit',function(req,res){
     }).then(function(result){
         res.render('success',{
             message:'分类保存成功！',
-            url:'/admin/categoryManage/categoryHome'
+            url:'/admin/categoryManage/categoryHome',
+            allcategories:allcategories
         })
     });
 });
@@ -155,7 +165,8 @@ router.get('/categoryManage/delete',function(req,res){
             }).then(function(){
                 res.render('success',{
                     message:'分类删除成功！',
-                    url:'/admin/categoryManage/categoryHome'
+                    url:'/admin/categoryManage/categoryHome',
+                    allcategories:allcategories
                 })
             });
         }
@@ -163,7 +174,9 @@ router.get('/categoryManage/delete',function(req,res){
 });
 
 router.get('/categoryManage/categoryAdd',function(req,res){
-    res.render('admin/categoryAdd');
+    res.render('admin/categoryAdd',{
+        allcategories:allcategories
+    });
 });
 
 router.post('/categoryManage/categoryAdd',function(req,res){
@@ -190,42 +203,72 @@ router.post('/categoryManage/categoryAdd',function(req,res){
     }).then(function(result){
         res.render('success',{
             message:'分类保存成功！',
-            url:'/admin/categoryManage/categoryHome'
+            url:'/admin/categoryManage/categoryHome',
+            allcategories:allcategories
         })
     });
 });
 
 router.get('/articleManage/articleHome',function(req,res){
+    var id=req.query.id||'';
     var page=isNaN(req.query.page)?1:req.query.page||1;
     var limit=4;
     var skip=0;
     var totalPages=0;
     var arr=[];
-    Content.count().then(function(count){
-        totalPages=Math.ceil(count/limit);
-        page=Math.min(page,totalPages);
-        page=Math.max(1,page);
-        skip=(page-1)*limit;
-
-        for(var i=0;i<totalPages;i++){
-            arr[i]=i+1;
-        }
-
-            Content.find().sort({_id:-1}).limit(limit).skip(skip).populate('category').then(function(result){
-                res.render('admin/articleHome',{
-                contents:result,
-                page:page,
-                arr:arr,
-                url:'/admin/articleManage/articleHome'
+    if(id=='all'){
+        Content.count().then(function(count){
+            totalPages=Math.ceil(count/limit);
+            page=Math.min(page,totalPages);
+            page=Math.max(1,page);
+            skip=(page-1)*limit;
+    
+            for(var i=0;i<totalPages;i++){
+                arr[i]=i+1;
+            }
+    
+                Content.find().sort({_id:-1}).limit(limit).skip(skip).populate('category').then(function(result){
+                    res.render('admin/articleHome',{
+                    contents:result,
+                    page:page,
+                    arr:arr,
+                    url:'/admin/articleManage/articleHome',
+                    allcategories:allcategories
+                });
             });
-        });
-    })
+        })
+    }else{
+        Content.count({category:id}).then(function(count){
+            totalPages=Math.ceil(count/limit);
+            page=Math.min(page,totalPages);
+            page=Math.max(1,page);
+            skip=(page-1)*limit;
+    
+            for(var i=0;i<totalPages;i++){
+                arr[i]=i+1;
+            }
+    
+                Content.find({
+                    category:id
+                }).sort({_id:-1}).limit(limit).skip(skip).populate('category').then(function(result){
+                    res.render('admin/articleHome',{
+                    contents:result,
+                    page:page,
+                    arr:arr,
+                    url:'/admin/articleManage/articleHome',
+                    allcategories:allcategories
+                });
+            });
+        })
+    }
+    
 });
 
 router.get('/articleManage/articleAdd',function(req,res){
     Category.find().then(function(result){
         res.render('admin/articleAdd',{
-            categories:result
+            categories:result,
+            allcategories:allcategories
         });
     });
 });
@@ -275,7 +318,8 @@ router.get('/articleManage/edit',function(req,res) {
             res.render('admin/articleEdit',{
                 content:result,
                 categories:categories,
-                id:id
+                id:id,
+                allcategories:allcategories
             });
         }
     });

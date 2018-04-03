@@ -47,7 +47,18 @@
                             <b class="caret"></b>
                         </a>
                         <ul>
-                            <li><a href="/admin/articleManage/articleHome"><span class="glyphicon glyphicon-paperclip">内容首页</span></a></li>
+                            <li>
+                                <a href="#" class="inactive active">
+                                    <span class="glyphicon glyphicon-paperclip">内容首页</span>
+                                    <b class="caret"></b>
+                                </a>
+                                <ul>
+                                    <li><a href="/admin/articleManage/articleHome?id=all"><span class="glyphicon glyphicon-paperclip">全部</span></a></li>
+                                    {%for category in allcategories%}
+                                    <li><a href="/admin/articleManage/articleHome?id={{category._id.toString()}}"><span class="glyphicon glyphicon-paperclip">{{category.categoryName}}</span></a></li>
+                                    {%endfor%}
+                                </ul>
+                            </li>
                             <li><a href="/admin/articleManage/articleAdd"><span class="glyphicon glyphicon-paperclip">添加内容</span></a></li>
                         </ul>
                     </li>  

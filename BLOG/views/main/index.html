@@ -1,64 +1,22 @@
 {%extends 'layout.html'%}
 
 {%block content%}
+    {%for content in contents%}
     <div class="content">
-        <h1>标题</h1>
+        <h1>{{content.title}}</h1>
         <p>
-            作者：千千家的易只烊
             时间：2018/3/25
-            类别：Vue
+            类别：{{content.category.categoryName}}
         </p>
         <dfn>
             <p>
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
+                {{content.description}}
             </p>
         </dfn>
         <div><a href="">阅 读 全 文</a></div>
     </div>
-    <div class="content">
-        <h1>标题</h1>
-        <p>
-            作者：千千家的易只烊
-            时间：2018/3/25
-            类别：Vue
-        </p>
-        <dfn>
-            <p>
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
-            </p>
-        </dfn>
-        <div><a href="">阅 读 全 文</a></div>
-    </div>
-    <div class="content">
-        <h1>标题</h1>
-        <p>
-            作者：千千家的易只烊
-            时间：2018/3/25
-            类别：Vue
-        </p>
-        <dfn>
-            <p>
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
-                这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字这是一段文字
-            </p>
-        </dfn>
-        <div><a href="">阅 读 全 文</a></div>
-    </div>
+    {%endfor%}
 
-    <div class="paging">
-        <ul class="pagination">
-            <li><a href="#">&laquo;</a></li>
-            <li class="active"><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-            <li><a href="#">&raquo;</a></li>
-        </ul>
-    </div>
+    {%include '../page.html'%}
+    
 {%endblock%}
