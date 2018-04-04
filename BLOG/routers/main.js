@@ -23,6 +23,10 @@ router.get('/',function (req,res) {
             }
     
                 Content.find().sort({_id:-1}).limit(limit).skip(skip).populate('category').then(function(result){
+                    console.log(result.time);
+                    result.time=(new Date().setTime(result.time*1000)).toLocaleString();
+                    console.log(result.time);
+                    console.log((new Date().setTime(result.time*1000)).toLocaleString());
                     res.render('main/index',{
                         userInfor:req.userInfor,
                         categories:categories,

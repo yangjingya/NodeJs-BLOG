@@ -5,9 +5,14 @@ var Category=require('../models/Category');
 var Content=require('../models/contents');
 
 var allcategories=[];
+var responseData;
 router.use(function(req,res,next){
     if(!req.userInfor.isadmin){
         return;
+    }
+    responseData={
+        code:0,
+        message:''
     }
     Category.find().then(function(result){
         allcategories=result;
@@ -274,7 +279,6 @@ router.get('/articleManage/articleAdd',function(req,res){
 });
 
 router.post('/articleManage/articleAdd',function(req,res){
-    console.log(req.body);
     if(req.body.category==''){
         res.render('error',{
             message:'分类内容不能为空'
@@ -287,11 +291,13 @@ router.post('/articleManage/articleAdd',function(req,res){
         });
         return;
     }
+    var time=new Date().getTime();
     var content=new Content({
         category:req.body.category,
         title:req.body.title,
         description:req.body.description,
-        content:req.body.content
+        content:req.body.content,
+        time:time
     });
     content.save().then(function(result){
         res.render('success',{
