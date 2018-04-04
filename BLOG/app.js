@@ -5,6 +5,7 @@ const bodyParser=require('body-parser');
 const cookieParser=require('cookie-parser');
 var User=require('./models/User');
 var Category=require('./models/Category');
+var Content=require('./models/contents');
 
 const app=express();
 
@@ -27,6 +28,12 @@ app.use(function(req,res,next){
             req.userInfor=req.signedCookies.userInfor;
             User.findById(req.signedCookies.userInfor.id).then(function(result){
                 req.userInfor.isadmin=Boolean(result.isadmin);
+                return Content.count();
+            }).then(function(count){
+                req.userInfor.posts=count;
+                return Category.count();
+            }).then(function(count){
+                req.userInfor.categories=count;
                 next();
             });
         }catch(e){

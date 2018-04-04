@@ -26,14 +26,14 @@
                 </div>
                 <div class="collapse navbar-collapse" id="responsive-navbar">
                     <ul class="nav navbar-nav" id="guide-nav">
-                        <li><a href=""><span class="glyphicon glyphicon-home">Home</span></a></li>
+                        <li><a href="/?id=all"><span class="glyphicon glyphicon-home">Home</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                <span class="glyphicon glyphicon-tower"></span> BLOG <span class="caret"></span>
                             </a>
                             <ul class="dropdown-menu">
                                 {%for category in categories %}
-                                <li><a href=""><span class="glyphicon glyphicon-paperclip">{{category.categoryName}}</span></a></li>
+                                <li><a href="/?id={{category._id.toString()}}"><span class="glyphicon glyphicon-paperclip">{{category.categoryName}}</span></a></li>
                                 {%endfor%}
                             </ul>
                         </li>
@@ -67,13 +67,13 @@
                         <tr>
                             <td>
                                 <a href="">
-                                    <strong>10</strong><br>
+                                    <strong>{{userInfor.posts}}</strong><br>
                                     <span>POSTS</span>
                                 </a>
                             </td>
                             <td>
                                 <a href="">
-                                    <strong>3</strong><br>
+                                    <strong>{{userInfor.categories}}</strong><br>
                                     <span>CATEGORIES</span>
                                 </a>
                             </td>

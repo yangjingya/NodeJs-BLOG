@@ -33,6 +33,10 @@ body{
     
 }
 
+.row{
+    text-align: center;
+}
+
 /* 整体布局 */
 
 /* 导航栏 */

@@ -1,6 +1,7 @@
 {%extends 'layout.html'%}
 
 {%block content%}
+    {%if contents!=''%}
     {%for content in contents%}
     <div class="content">
         <h1>{{content.title}}</h1>
@@ -13,9 +14,14 @@
                 {{content.description}}
             </p>
         </dfn>
-        <div><a href="">阅 读 全 文</a></div>
+        <div><a href="/contentDetail?id={{content._id.toString()}}">阅 读 全 文 &raquo;&raquo;</a></div>
     </div>
     {%endfor%}
+    {%else%}
+    <div class="content">
+        <strong>该类型文章不存在</strong>
+    </div>
+    {%endif%}
 
     {%include '../page.html'%}
     
