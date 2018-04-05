@@ -17,12 +17,13 @@
         <div><a href="/contentDetail?id={{content._id.toString()}}">阅 读 全 文 &raquo;&raquo;</a></div>
     </div>
     {%endfor%}
+    {%include '../page.html'%}
     {%else%}
     <div class="content">
         <strong>该类型文章不存在</strong>
     </div>
     {%endif%}
 
-    {%include '../page.html'%}
+    
     
 {%endblock%}

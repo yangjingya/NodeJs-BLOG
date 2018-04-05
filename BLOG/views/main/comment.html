@@ -1,0 +1,28 @@
+{%extends 'layout.html'%}
+
+{%block content%}
+    <form role="form" method="post" action="?" id="commentAdd">
+        <div class="form-group">
+            <textarea class="form-control" name="comment" id="" cols="30" rows="5">请输入评论内容</textarea><br>
+            <button type="submit" class="form-control">发表评论</button>
+        </div>
+    </form>
+    <div>
+        {%if comments!=''%}
+        {%for comment in comments%}
+        <div id="commentAll">
+            <img src="{{comment.user.avatarUrl}}" class="img-circle" width="40px" height="40px">
+            <span>{{comment.user.username}}</span>
+            <span class="time">{{comment.time}}</span>
+            <p>{{comment.content}}</p>
+        </div>
+        {%endfor%}
+        {%include '../page.html'%}
+        {%else%}
+        <div>
+            <strong>暂时没有评论</strong>
+        </div>
+        {%endif%}
+    </div>
+    
+{%endblock%}

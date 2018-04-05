@@ -1,0 +1,36 @@
+#commentAdd{
+    padding-bottom: 30px;
+}
+
+#commentAdd textarea{
+    background: rgba(255,255,255,0.3);
+    border: none;
+}
+
+#commentAdd button{
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 1px white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+#commentAll{
+    padding: 10px 0 0 10px;
+    border-bottom: 1px dashed white;
+    text-align: initial;
+}
+
+#commentAll span{
+    font-size: 16px;
+    vertical-align: 16px;
+}
+
+#commentAll p{
+    padding: 10px;
+}
+
+.time{
+    float: right;
+}

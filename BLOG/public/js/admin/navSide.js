@@ -27,7 +27,7 @@ $(function(){
     })  
     //侧栏伸缩
     $('#signout').on('click',function(){
-        window.location.href="/?id=all";
+        window.location.href="/";
     });
 
 

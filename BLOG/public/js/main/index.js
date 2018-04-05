@@ -94,7 +94,7 @@ $(function(){
             url:'/api/user/signout',
             dataType:'json',
             success:function(result){
-                window.location.reload();
+                window.location.href='/';
             }
         });
     });
