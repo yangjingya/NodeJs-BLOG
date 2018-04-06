@@ -3,6 +3,7 @@ const router=express.Router();
 var User=require('../models/User');
 var Category=require('../models/Category');
 var Content=require('../models/contents');
+var Comment=require('../models/Comment');
 
 var allcategories=[];
 var responseData;
@@ -403,7 +404,57 @@ router.get('/articleManage/delete',function(req,res){
 });
 
 router.get('/comment',function(req,res){
-    res.send('评论');
+    var page=isNaN(req.query.page)?1:req.query.page||1;
+    var limit=4;
+    var skip=0;
+    var totalPages=0;
+    var arr=[];
+    Comment.count().then(function(count){
+        totalPages=Math.ceil(count/limit);
+        page=Math.min(page,totalPages);
+        page=Math.max(1,page);
+        skip=(page-1)*limit;
+
+        for(var i=0;i<totalPages;i++){
+            arr[i]=i+1;
+        }
+        return Comment.find().sort({_id:-1}).limit(limit).skip(skip).populate('user');
+    }).then(function(result){
+        for(var i=0;i<result.length;i++){
+            var date=new Date(parseInt(result[i].time));
+            result[i].time=date.getFullYear() + '/'+(date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '/'+(date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' '+
+            (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'+(date.getMinutes() <10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'+(date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
+        }
+        res.render('admin/comment',{
+            allcategories:allcategories,
+            page:page,
+            arr:arr,
+            comments:result
+    });
+});
+});
+
+router.get('/commentDelete',function(req,res){
+    var id=req.query.id||'';
+    Comment.findOne({
+        _id:id
+    }).then(function(result){
+        if(!result){
+            res.render('error',{
+                message:'评论不存在！'
+            });
+            return;
+        }else{
+            Comment.remove({
+                _id:id
+            }).then(function(){
+                res.render('success',{
+                    message:'评论删除成功！',
+                    url:'/admin/comment'
+                })
+            });
+        }
+    });
 });
 
 module.exports=router;
