@@ -9,7 +9,11 @@
     <form role="form" method="post" action="?" id="commentAdd">
         <div class="form-group">
             <textarea class="form-control" name="comment" id="" cols="30" rows="5">请输入评论内容</textarea><br>
+            {%if !userInfor.id%}
+            <a href="" data-toggle="modal" data-target="#error" id="putComment" class="form-control">发表评论</a>
+            {%else%}
             <button type="submit" class="form-control">发表评论</button>
+            {%endif%}
         </div>
     </form>
     <div>
@@ -28,6 +32,22 @@
             <strong>暂时没有评论</strong>
         </div>
         {%endif%}
+    </div>
+    <div id="error" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" data-dismiss="modal">&times;</button>
+                    <h4>错误提醒</h4>
+                </div>
+                <div class="modal-body">
+                    <h1>您还未登录!请先登录再进行评论！</h1>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn close"  data-dismiss="modal">返回</button>
+                </div>
+            </div>
+        </div>
     </div>
     
 {%endblock%}

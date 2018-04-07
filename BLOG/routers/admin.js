@@ -7,6 +7,7 @@ var Comment=require('../models/Comment');
 
 var allcategories=[];
 var responseData;
+var newestContents=[];
 router.use(function(req,res,next){
     if(!req.userInfor.isadmin){
         return;
@@ -22,9 +23,29 @@ router.use(function(req,res,next){
 });
 
 router.get('/home',function(req,res){
-    res.render('admin/index',{
-        allcategories:allcategories
+    var limit=4;
+    Content.find().sort({_id:-1}).limit(limit).populate('category').then(function(result){
+        for(var i=0;i<result.length;i++){
+            var date=new Date(parseInt(result[i].time));
+            result[i].time=date.getFullYear() + '/'+(date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '/'+(date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' '+
+            (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'+(date.getMinutes() <10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'+(date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
+        }
+        newestContents=result;
+        return Comment.find().sort({_id:-1}).limit(limit).populate('user');
+    }).then(function(result){
+        for(var i=0;i<result.length;i++){
+            var date=new Date(parseInt(result[i].time));
+            result[i].time=date.getFullYear() + '/'+(date.getMonth()+1 < 10 ? '0'+(date.getMonth()+1) : date.getMonth()+1) + '/'+(date.getDate() < 10 ? '0' + (date.getDate()) : date.getDate()) + ' '+
+            (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':'+(date.getMinutes() <10 ? '0' + date.getMinutes() : date.getMinutes()) + ':'+(date.getSeconds() <10 ? '0' + date.getSeconds() : date.getSeconds());
+        }
+        console.log(newestContents);
+        console.log(result);
+        res.render('admin/index',{
+            allcategories:allcategories,
+            newestComments:result,
+            newestContents:newestContents
     });
+});
 });
 
 router.get('/userManage',function(req,res){

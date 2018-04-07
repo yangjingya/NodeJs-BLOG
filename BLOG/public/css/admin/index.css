@@ -1,0 +1,82 @@
+#welcome{
+    background: rgba(0,0,0,0.3);
+    border: none;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#welcome h1{
+    font-size: 30px;
+    color: rgb(245, 212, 217);
+    padding-bottom: 5px;
+}
+
+#welcome h2,#welcome div{
+    padding: 0 0 5px 20px;
+    font-size: 18px;
+    color: rgb(233, 212, 215);
+}
+
+#welcome a{
+    padding: 2px;
+    display: block;
+    color: rgb(247, 155, 170);
+}
+
+#newestContent{
+    float: left;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    width: 48%;
+}
+
+#newestContent div:first-child{
+    padding: 10px;
+    border-bottom: 1px solid rgba(167, 162, 162,0.8);
+}
+
+#newestContent div:first-child h3{
+    font-size: 20px;
+    color: rgb(230, 213, 215);
+}
+
+#newestContent div:last-child{
+    padding: 10px;
+}
+
+#newestContent div:last-child ul li{
+    padding: 5px;
+    border-bottom: 1px dotted rgba(202, 196, 196, 0.8);
+    color: rgb(230, 221, 222);
+    /* white-space: nowrap;
+    overflow: hidden; */
+}
+
+#newestComment{
+    float: right;
+    background: rgba(0,0,0,0.3);
+    border: none;
+    width: 48%;
+}
+
+#newestComment div:first-child{
+    padding: 10px;
+    border-bottom: 1px solid rgba(167, 162, 162,0.8);
+}
+
+#newestComment div:first-child h3{
+    font-size: 20px;
+    color: rgb(230, 213, 215);
+}
+
+#newestComment div:last-child{
+    padding: 10px;
+}
+
+#newestComment div:last-child ul li{
+    padding: 5px;
+    border-bottom: 1px dotted rgba(202, 196, 196, 0.8);
+    color: rgb(230, 221, 222);
+    /* white-space: nowrap;
+    overflow: hidden; */
+}

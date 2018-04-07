@@ -16,6 +16,15 @@
     font-size: 16px;
 }
 
+#putComment{
+    background: rgba(255,255,255,0.9);
+    border: none;
+    border-radius: 30px;
+    box-shadow: 0 0 10px 1px white;
+    font-weight: bold;
+    font-size: 16px;
+}
+
 #commentAll{
     padding: 10px 0 0 10px;
     border-bottom: 1px dashed white;
@@ -40,4 +49,11 @@
     font-weight: bold;
     color: red;
     margin-bottom: 10px;
+}
+
+#error .btn{
+    padding: 5px 8px;
+    background:rgba(0,0,0,0);
+    box-shadow: 0 0 10px 1px lightblue;
+    color:black;
 }
