@@ -81,7 +81,7 @@ $(function(){
             },
             dataType:'json',
             success:function(result){
-                window.location.href='/';
+                window.location.href='/home';
             }
         });
     });
@@ -94,7 +94,7 @@ $(function(){
             url:'/api/user/signout',
             dataType:'json',
             success:function(result){
-                window.location.href='/';
+                window.location.href='/home';
             }
         });
     });

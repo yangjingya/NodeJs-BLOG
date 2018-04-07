@@ -1,6 +1,11 @@
 {%extends 'layout.html'%}
 
 {%block content%}
+    {%if !userInfor.id%}
+    <div id="isLogin">
+        您还没有登录！请先登录!
+    </div>
+    {%endif%}
     <form role="form" method="post" action="?" id="commentAdd">
         <div class="form-group">
             <textarea class="form-control" name="comment" id="" cols="30" rows="5">请输入评论内容</textarea><br>

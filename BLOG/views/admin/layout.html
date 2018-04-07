@@ -53,9 +53,9 @@
                                     <b class="caret"></b>
                                 </a>
                                 <ul>
-                                    <li><a href="/admin/articleManage/articleHome?id=all"><span class="glyphicon glyphicon-paperclip">全部</span></a></li>
+                                    <li><a href="/admin/articleManage/articleHome?id=all"><span class="glyphicon glyphicon-tag">全部</span></a></li>
                                     {%for category in allcategories%}
-                                    <li><a href="/admin/articleManage/articleHome?id={{category._id.toString()}}"><span class="glyphicon glyphicon-paperclip">{{category.categoryName}}</span></a></li>
+                                    <li><a href="/admin/articleManage/articleHome?id={{category._id.toString()}}"><span class="glyphicon glyphicon-tag">{{category.categoryName}}</span></a></li>
                                     {%endfor%}
                                 </ul>
                             </li>

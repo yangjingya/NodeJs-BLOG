@@ -1,5 +1,5 @@
 #commentAdd{
-    padding-bottom: 30px;
+    padding-bottom: 15px;
 }
 
 #commentAdd textarea{
@@ -33,4 +33,11 @@
 
 .time{
     float: right;
+}
+
+#isLogin{
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+    margin-bottom: 10px;
 }

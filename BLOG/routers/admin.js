@@ -17,8 +17,8 @@ router.use(function(req,res,next){
     }
     Category.find().then(function(result){
         allcategories=result;
+        next();
     });
-    next();
 });
 
 router.get('/home',function(req,res){
@@ -48,7 +48,7 @@ router.get('/userManage',function(req,res){
                 users:result,
                 page:page,
                 arr:arr,
-                url:'/admin/userManage',
+                url:'/admin/userManage?',
                 allcategories:allcategories
             });
         });
@@ -76,7 +76,7 @@ router.get('/categoryManage/categoryHome',function(req,res){
                 categories:result,
                 page:page,
                 arr:arr,
-                url:'/admin/categoryManage/categoryHome',
+                url:'/admin/categoryManage/categoryHome?',
                 allcategories:allcategories
             });
         });
@@ -238,7 +238,7 @@ router.get('/articleManage/articleHome',function(req,res){
                     contents:result,
                     page:page,
                     arr:arr,
-                    url:'/admin/articleManage/articleHome',
+                    url:'/admin/articleManage/articleHome?id='+id,
                     allcategories:allcategories
                 });
             });
@@ -429,7 +429,8 @@ router.get('/comment',function(req,res){
             allcategories:allcategories,
             page:page,
             arr:arr,
-            comments:result
+            comments:result,
+            url:'/admin/comment?'
     });
 });
 });

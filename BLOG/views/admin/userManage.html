@@ -11,7 +11,6 @@
     <caption>用户信息表</caption>
     <thead>
       <tr>
-        <th>ID</th>
         <th>头像</th>
         <th>用户名</th>
         <th>密码</th>
@@ -22,7 +21,6 @@
         {%for user in users%}
         {%if user.isadmin==false %}
         <tr>
-            <td>{{user.id}}</td>
             <td><img src="{{user.avatarUrl}}" width="50" height="50" class="img-circle"></td>
             <td>{{user.username}}</td>
             <td>{{user.password}}</td>
