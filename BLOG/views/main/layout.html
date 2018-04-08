@@ -53,8 +53,7 @@
         <!-- 导航 -->
         <!-- 主体 -->
         <div class="row">
-            <div class="col-sm-8 col-md-8">{%block content%}{%endblock%}</div>
-            <div class="col-sm-4 col-md-4 main-right">
+            <div class="col-sm-push-8 col-sm-4 col-md-4 ">
                 {%if userInfor.id%}
                 <!-- 登录成功页面 -->
                 <div class="LoginSuccess" id="loginSuccess">
@@ -151,6 +150,7 @@
                 <!-- 登录 -->
                 {%endif%}
             </div>
+            <div class="col-sm-pull-4 col-sm-8 col-md-8">{%block content%}{%endblock%}</div>
             <div id="avatar" class="modal fade" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content">

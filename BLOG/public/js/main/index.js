@@ -28,9 +28,9 @@ $(function(){
             type:'post',
             url:'/api/user/register',
             data:{
-                username:registerBox.find('[name="username"]').val(),
-                password:registerBox.find('[name="password"]').val(),
-                repassword:registerBox.find('[name="repassword"]').val(),
+                username:registerBox.find('[name="username"]').val().trim(),
+                password:registerBox.find('[name="password"]').val().trim(),
+                repassword:registerBox.find('[name="repassword"]').val().trim(),
                 address:remote_ip_info['country']+remote_ip_info['province']+remote_ip_info['city']
             },
             dataType:'json',
@@ -49,8 +49,8 @@ $(function(){
             type:'post',
             url:'/api/user/login',
             data:{
-                username:loginBox.find('[name="username"]').val(),
-                password:loginBox.find('[name="password"]').val()
+                username:loginBox.find('[name="username"]').val().trim(),
+                password:loginBox.find('[name="password"]').val().trim()
             },
             dataType:'json',
             success:function(result){

@@ -100,9 +100,6 @@ body{
 }
 
 @media(max-width: 767px){
-    .main-right{
-        display: none;
-    }
     #searchInput{
         width:100%;
     }
